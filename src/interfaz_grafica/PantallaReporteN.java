@@ -41,7 +41,7 @@ public class PantallaReporteN {
     private Button reporte, guardar, enviar;
     
     public PantallaReporteN(Reporte r){
-        logo = new ImageView(new Image("/recursos/logoSys.png",200,200,true,true));
+        logo = new ImageView(new Image("/recursos/Syscompsa_Nuevo.png",160,160,true,true));
         root = new BorderPane();
         grid = new GridPane();
         reporte = new Button("Visualizar Reporte");
@@ -98,7 +98,7 @@ public class PantallaReporteN {
         ordenTrabajo = new Label(r.getOrdenTrabajo().trim());
         fechaReporte = new Label(r.getFechaIngreso().toString().trim());
         solucion = new Label(r.getSolucion().trim());
-        solucion.setMaxWidth(500);
+        solucion.setMaxWidth(450);
         solucion.setWrapText(true);
         solicitadopor = new Label(r.getSolicitadoPor().trim());
         dpto = new Label(r.getDpto());
@@ -118,7 +118,7 @@ public class PantallaReporteN {
         else
             contrato.setText("NO");
         observaciones = new Label(r.getObservaciones().trim());
-        observaciones.setMaxWidth(500);
+        observaciones.setMaxWidth(450);
         observaciones.setWrapText(true);
         horaInicial = new Label(r.getHora_ini().trim());
         horaFinal = new Label(r.getHora_fin().trim());
@@ -133,8 +133,6 @@ public class PantallaReporteN {
         grid.add(fecha,3,0);
         grid.add(lordenTrabajo,2,1);
         grid.add(ordenTrabajo,3,1);
-        //grid.add(ldescripcion,0,2);
-        //grid.add(descripcion,1,2);
         grid.add(lsolucion,0,3);
         grid.add(solucion,1,3);
         grid.add(lfechaReporte,2,3);

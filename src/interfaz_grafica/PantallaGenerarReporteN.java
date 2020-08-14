@@ -86,13 +86,14 @@ public class PantallaGenerarReporteN {
     public PantallaGenerarReporteN(Stage stage,Vendedor user) {
         cargarPanes(stage,user);
         //manejarBoxRubro();
-        stagelocal.setScene(new Scene(scroll,1000,680));
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        //stage.getWidth()/1.2,stage.getHeight()/1.2  <-- esperar para probar esta opcion
+        stagelocal.setScene(new Scene(scroll));
         stagelocal.centerOnScreen();
-        
-        //stagelocal.setX((primScreenBounds.getWidth() - stagelocal.getWidth()) / 2);
-        //stagelocal.setY(((primScreenBounds.getHeight() - stagelocal.getHeight()) / 2));
         stagelocal.show();
+        //Codigo para centrar el stage creado (!!!Es importante ponerlo despues de stagelocal.show()!!!)
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        stagelocal.setX((primScreenBounds.getWidth() - stagelocal.getWidth()) / 2);
+        stagelocal.setY((primScreenBounds.getHeight() - stagelocal.getHeight()) / 2);
     }
     
     private void cargarPanes(Stage stage,Vendedor user){
@@ -102,6 +103,8 @@ public class PantallaGenerarReporteN {
         scroll.setPadding(new Insets(10,10,10,10));
         root = new BorderPane();
         scroll.setContent(root);
+        scroll.setFitToHeight(true);
+        scroll.setFitToWidth(true);
         grid = new GridPane();
         gridRubros = new GridPane();
         combo = new SearchComboBox<>();
@@ -193,7 +196,8 @@ public class PantallaGenerarReporteN {
             }
         });
         
-        /*horafinal.textProperty().addListener((observable,oldvalue,newvalue)->{
+        /* Codigo creado para poner las horas sin necesidad de usar los dos puntos (Erradicado por JFXTimePicker)
+        horafinal.textProperty().addListener((observable,oldvalue,newvalue)->{
             if(newvalue.length() > oldvalue.length()){
                 if(oldvalue.length() == 2){
                     oldvalue = oldvalue.concat(":"+newvalue.charAt(newvalue.length()-1));

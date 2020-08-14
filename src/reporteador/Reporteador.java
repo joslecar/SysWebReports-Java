@@ -50,6 +50,7 @@ public class Reporteador {
             Alert a = new Alert(AlertType.ERROR);
             a.setHeaderText("Error JRException");
             a.setContentText( ex.getLocalizedMessage());
+            System.out.println(ex);
             a.showAndWait();
         } catch (SQLException ex) {
             ErrorMessage e = new ErrorMessage(ex.getClass().getName(),"Excepcion en Reporteador CrearReporte",ex.toString());
@@ -64,8 +65,7 @@ public class Reporteador {
         }
     }
     public void guardarReporte(String numero_rs,String tipoUser){
-        JasperReport jasperReport;
-        JasperPrint jasperPrint;         
+        JasperReport jasperReport;        
         try{
           ConexionSQL con = new ConexionSQL();
           //se carga el reporte
@@ -78,9 +78,8 @@ public class Reporteador {
           parametro.put("numero_rs", numero_rs);
           parametro.put("imagen", Reporteador.class.getResourceAsStream("/recursos/Syscompsa.jpg"));
           parametro.put("tipoUser", tipoUser);
-          jasperPrint = JasperFillManager.fillReport(in, parametro, con.conectarSQL("SYSWEBSERVICE\\SQLEXPRESS", "data01", "sa", "Rootpass1") );
+          JasperPrint jasperPrint = JasperFillManager.fillReport(in, parametro, con.conectarSQL("SYSWEBSERVICE\\SQLEXPRESS", "data01", "sa", "Rootpass1") );
           //se crea el archivo PDF
-            System.out.println("Im here");
           File directorio = new File("./reportesGuardados");
           if(!directorio.exists()){
             if(directorio.mkdirs()){
@@ -107,13 +106,17 @@ public class Reporteador {
                 ErrorMessage e = new ErrorMessage(ex.getClass().getName(),"Excepcion en Reporteador GuardarReporte",ex.toString());
                 e.display();
             });
-            System.err.println( "Error iReport: " + ex.getMessage() );
         }catch (SQLException ex) {
             Platform.runLater(()->{
                 ErrorMessage e = new ErrorMessage(ex.getClass().getName(),"Excepcion en Reporteador GuardarReporte",ex.toString());
                 e.display();
             });
             Logger.getLogger(Reporteador.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(Exception ex){
+            Platform.runLater(()->{
+                ErrorMessage e = new ErrorMessage(ex.getClass().getName(),"Excepcion en Reporteador GuardarReporte",ex.toString());
+                e.display();
+            });
         }
     }
 

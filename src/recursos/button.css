@@ -1,12 +1,12 @@
 #salir{
-	-fx-border-radius: 40px;
+	-fx-border-radius: 20px;
 	-fx-text-fill: whitesmoke;
 	-fx-border-color: black;
 }
 #iniciar{
-        -fx-border-radius: 40px;
-        -fx-border-color: black;
+        -fx-border-radius: 20px;
         -fx-text-fill: whitesmoke;
+        -fx-background-color: #2CA3FD;
 }
 #iniciar:hover{
     -fx-transition: ease all 1s;
@@ -28,6 +28,7 @@
         -fx-font-family: Monaco;
         -fx-border-width: 2px;
 }
+
 #cambios:hover{
         -fx-border-color:#66957F;  
         -fx-border-width: 5px;

@@ -19,6 +19,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
 /**
@@ -30,16 +31,15 @@ public class Aplicacion extends Application {
     //public static ConexionMySQL SQL = new ConexionSQL();
     @Override
     public void start(Stage stage) {
-        log = new Login(stage);
         Screen pantalla = Screen.getPrimary();
         Rectangle2D bounds = pantalla.getVisualBounds();
-        stage.setX(bounds.getMinX());
-        stage.setY(bounds.getMinY());
-        stage.setWidth(bounds.getWidth());
-        stage.setHeight(bounds.getHeight());
-        Scene sc=new Scene(log.getPrincipal(),bounds.getWidth(),bounds.getHeight());
+        stage.setWidth(bounds.getWidth()/2);
+        stage.setHeight(bounds.getHeight()/1.5);
+        //stage.initStyle(StageStyle.UNDECORATED);
+        log = new Login(stage);
+        Scene sc=new Scene(log.getPrincipal(),bounds.getWidth()/2,bounds.getHeight()/3);
         stage.setScene(sc);
-        stage.setMaximized(true);
+        //stage.setMaximized(true);
         stage.setTitle("Syscompsa App");
         //stage.setFullScreen(true);
        // sc
@@ -54,8 +54,10 @@ public class Aplicacion extends Application {
             Platform.exit();
             System.exit(0);
         });
-        
         stage.show();
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
     }
 
     /**

@@ -6,8 +6,9 @@
 package interfaz_grafica;
 
 
-import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXTimePicker;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import conexionDB.ConexionSQL;
 import java.util.List;
 import javafx.geometry.Pos;
@@ -50,9 +51,11 @@ public class Login {
     private VBox principal,panelizquierdo;
     private HBox cajausuario,cajapass,cajabot;
     private Label lusuario,lpass;
-    private PasswordField pass;
-    private TextField usuario;
-    private Button ingresar,salir,cambios,acercade;
+    //private PasswordField pass;
+    private JFXPasswordField pass;
+    //private TextField usuario;
+    private JFXTextField usuario;
+    private JFXButton ingresar,salir,cambios,acercade;
     private Image imagen;
     private ImageView imgview,fondo;
     public  EntidadLocal user;
@@ -72,13 +75,15 @@ public class Login {
     private void inicializarPanes(Stage stage){
         root = new AnchorPane();
         contenedor = new StackPane();
-        Screen pantalla = Screen.getPrimary();
-        Rectangle2D bounds = pantalla.getVisualBounds();
+        /*Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);*/
+        
         imagen=new Image("/recursos/Syscompsa_Nuevo.png",250,250,true,true);
         imgview=new ImageView(imagen);
         
-        cambios = new Button("Cambios de cuenta2");
-        acercade = new Button("Acerca de");
+        cambios = new JFXButton("Cambios de cuenta2");
+        acercade = new JFXButton("Acerca de");
         
         lusuario=new Label("Usuario");
         lusuario.setTextFill(Color.WHITE);
@@ -88,13 +93,15 @@ public class Login {
         lpass.setTextFill(Color.WHITE);
         lpass.setFont(new Font("Agency FB",20));
         
-        pass=new PasswordField();
-        usuario=new TextField();
-        ingresar=new Button("Ingresar");
-        ingresar.setFont(new Font("Agency FB",20));
+        pass=new JFXPasswordField();
+        pass.setPromptText("Password");
+        usuario=new JFXTextField();
+        usuario.setPromptText("Username/Email");
+        ingresar=new JFXButton("Ingresar");
+        //ingresar.setFont(new Font("Agency FB",20));
         ingresar.setDefaultButton(true);
         
-        salir=new Button("Salir");
+        salir=new JFXButton("Salir");
         salir.setId("salir");
 
         salir.getStylesheets().add("recursos/button.css");
@@ -107,7 +114,7 @@ public class Login {
         });
         ingresar.setId("iniciar");
         ingresar.getStylesheets().add("recursos/button.css");
-        ingresar.setBackground(Background.EMPTY);
+        //ingresar.setBackground(Background.EMPTY);
         ingresar.setOnAction((c)->{
             if((usuario.getText().length()!=0)&&(pass.getText().length()!=0)){
             c.consume();
@@ -161,17 +168,16 @@ public class Login {
             
         });
         fondo = new ImageView(new Image("recursos/imagen2.png"));
-        fondo.setFitHeight(bounds.getHeight());
-        fondo.setFitWidth(bounds.getWidth());
+        fondo.setFitHeight(stage.getHeight());
+        fondo.setFitWidth(stage.getWidth());
         /*int numero = 1;
         String casa = "Hola";
         String total = String.valueOf(numero)+casa;*/
-        System.out.println();
-        cajausuario=new HBox(lusuario,usuario);
+        cajausuario=new HBox(usuario);
         cajausuario.setSpacing(35);
         cajausuario.setAlignment(Pos.CENTER);
         
-        cajapass=new HBox(lpass,pass);
+        cajapass=new HBox(pass);
         cajapass.setSpacing(15);
         cajapass.setAlignment(Pos.CENTER);
         
@@ -186,18 +192,18 @@ public class Login {
 
         contenedor.getChildren().addAll(fondo,root);
         //Medidas de panel izquierdo
-        AnchorPane.setTopAnchor(panelizquierdo, 10.0);
+        /*AnchorPane.setTopAnchor(panelizquierdo, 10.0);
         AnchorPane.setRightAnchor(panelizquierdo, 1150.0);
         AnchorPane.setLeftAnchor(panelizquierdo, 10.0);
-        AnchorPane.setBottomAnchor(panelizquierdo, 40.0);
+        AnchorPane.setBottomAnchor(panelizquierdo, 40.0);*/
         //Medidas de panel central
         AnchorPane.setTopAnchor(principal, 10.0);
         AnchorPane.setRightAnchor(principal, 200.0);
-        AnchorPane.setLeftAnchor(principal, 500.0);
+        AnchorPane.setLeftAnchor(principal, 200.0);
         AnchorPane.setBottomAnchor(principal, 40.0);
         
         root.getChildren().addAll(panelizquierdo,principal);
-        panelizquierdo.getChildren().addAll(cambios,acercade);
+        //panelizquierdo.getChildren().addAll(cambios,acercade);
         //panelizquierdo.setSpacing(20);
         panelizquierdo.setStyle("-fx-background-color: #90C8AD; -fx-border-color: #66957F; -fx-border-width: 5px");
         panelizquierdo.setPadding(new Insets(10,10,10,10));

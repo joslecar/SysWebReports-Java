@@ -34,6 +34,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
+import javafx.stage.StageStyle;
 /**
  *
  * @author Municipio de Gye
@@ -45,6 +46,7 @@ public class MenuPrincipal {
        private ImageView imgv,fondo;
        private Button generarRep,verRep,cerrarSesion;
        private StackPane contenedor;
+       private Stage stagelocal;
 
     public MenuPrincipal(Stage stage,Vendedor user) {
         inicializarPanes(stage,user);
@@ -56,6 +58,8 @@ public class MenuPrincipal {
         contenedor = new StackPane();
         Screen pantalla = Screen.getPrimary();
         Rectangle2D bounds = pantalla.getVisualBounds();
+        stage.setMaximized(true);
+        //stagelocal.setMaximized(true);
         fondo = new ImageView(new Image("recursos/imagen1.png"));
         fondo.setFitHeight(bounds.getHeight());
         fondo.setFitWidth(bounds.getWidth());
