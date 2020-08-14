@@ -1,0 +1,42 @@
+#salir{
+	-fx-border-radius: 20px;
+	-fx-text-fill: whitesmoke;
+	-fx-border-color: black;
+}
+#iniciar{
+        -fx-border-radius: 20px;
+        -fx-text-fill: whitesmoke;
+        -fx-background-color: #2CA3FD;
+}
+#iniciar:hover{
+    -fx-transition: ease all 1s;
+        -fx-border-color:aqua;
+        -fx-font-family: Monaco; 
+}
+#salir:hover{
+        -fx-border-color:rosybrown;       
+}
+#cambios{
+        -fx-border-color:darkcyan;
+        -fx-text-fill: whitesmoke;
+        -fx-font-family: Monaco; 
+        -fx-border-width: 2px;
+}
+#acercade{
+        -fx-border-color:darkcyan;
+        -fx-text-fill: whitesmoke; 
+        -fx-font-family: Monaco;
+        -fx-border-width: 2px;
+}
+
+#cambios:hover{
+        -fx-border-color:#66957F;  
+        -fx-border-width: 5px;
+}
+#acercade:hover{
+        -fx-border-color:#66957F;
+        -fx-border-width: 5px;
+}
+.toggle-button:selected{
+    -fx-background-color: lightblue;
+}

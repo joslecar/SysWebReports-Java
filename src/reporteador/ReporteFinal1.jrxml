@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="68bb86d1-f472-49b4-a541-4ec38d71865c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="91"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SQLServer"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="numero_rs" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipoUser" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select w.tipo,w.numero_rs,nombre,wd.time_rubro,empcli,nombreAsesor,w.fecha_rs,solucion,
+facturar,ordenTrabajo,solucionado,contrato,dpto,solicitadoPor,hora_ini,
+hora_fin,descripcion,observaciones,motivo from webservices w join webservicesdescp wd on w.numero_rs = wd.numero_rs join alptabla a on wd.cod_rubro = a.codigo join dp05a110 d on w.empresa_rs = d.codigo join (select sgrupo, nombre as nombreAsesor from alptabla where master = (select codigo from alptabla where nomtag = 'I_VENDE')) na 
+on w.cod_asesor = na.sgrupo where w.numero_rs = $P{numero_rs}]]>
+	</queryString>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="numero_rs" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="time_rubro" class="java.lang.String"/>
+	<field name="empcli" class="java.lang.String"/>
+	<field name="nombreAsesor" class="java.lang.String"/>
+	<field name="fecha_rs" class="java.sql.Date"/>
+	<field name="solucion" class="java.lang.String"/>
+	<field name="facturar" class="java.lang.Boolean"/>
+	<field name="ordenTrabajo" class="java.lang.String"/>
+	<field name="solucionado" class="java.lang.Boolean"/>
+	<field name="contrato" class="java.lang.Boolean"/>
+	<field name="dpto" class="java.lang.String"/>
+	<field name="solicitadoPor" class="java.lang.String"/>
+	<field name="hora_ini" class="java.lang.String"/>
+	<field name="hora_fin" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="observaciones" class="java.lang.String"/>
+	<field name="motivo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="220" y="7" width="291" height="23" uuid="4d745ce6-8d91-4e78-bbda-314e2a399b09"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="Cambria" size="16" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Sistemas y Equipos de Computación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="30" width="284" height="19" uuid="588ea642-0b2f-4ada-94ca-fc4845012b7a"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PBX: 2924030 • e-mail:syscompsa@gye.satnet.net]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="49" width="284" height="20" uuid="711ae147-f5ec-4582-8147-f04cd004d1b4"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cdla. Vernaza Norte - Mz.25 V-16 • Guayaquil - Ecuador]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="231" y="0" width="100" height="20" uuid="054ae460-a013-4cfa-a74c-7aa576126f4f"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="117" height="20" uuid="de0ffdb2-95b6-446f-a4af-7c0f114d4b68"/>
+				<textFieldExpression><![CDATA[$F{numero_rs}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="0" width="170" height="20" uuid="77c7db3e-e934-4fd1-bd71-2d3dcc4687d7"/>
+				<textElement markup="none">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE SERVICIO]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="29" width="51" height="20" uuid="6f621121-52db-41de-bf70-d4e11ad84351"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Motivo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="29" width="205" height="20" uuid="e02db030-18b0-41f0-b3ce-3319e11a05f5"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="1" width="51" height="20" uuid="477073fc-e4e0-4087-b504-6e8296597bfa"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="1" width="205" height="20" uuid="cf860273-2c64-4f0c-b9f4-78fd9ea10674"/>
+				<textFieldExpression><![CDATA[$F{empcli}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="321" y="1" width="58" height="20" uuid="5fdb5edb-22f3-4cb6-9073-6ce89ba4fa91"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="438" y="1" width="100" height="20" uuid="93613d6f-8ff8-4866-ae4c-930b1f30767f"/>
+				<textFieldExpression><![CDATA[$F{fecha_rs}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="321" y="29" width="100" height="20" uuid="95482d58-288e-4181-96c3-e2fc01c35a32"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Orden de Trabajo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="438" y="29" width="117" height="20" uuid="40c48ae0-7b10-46db-ac12-ba30b7548c68"/>
+				<textFieldExpression><![CDATA[$F{ordenTrabajo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="259" splitType="Stretch">
+			<textField>
+				<reportElement x="108" y="35" width="430" height="36" uuid="6a4c4a36-5895-4db2-8552-e8340a7c893c"/>
+				<textFieldExpression><![CDATA[$F{solucion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="35" width="51" height="20" uuid="fcab53c4-bc6f-412f-9c4f-499050348c2d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Solución]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="112" width="70" height="20" uuid="317afec2-4310-499e-9337-ad15d1954959"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Facturar]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="112" width="100" height="20" uuid="6f337752-647c-49b9-a6de-9027b30c8d75"/>
+				<textFieldExpression><![CDATA[$F{facturar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="84" width="418" height="20" uuid="588b6f85-120b-40e5-b90a-42e54e4a3a7e"/>
+				<textFieldExpression><![CDATA[$F{solicitadoPor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="84" width="88" height="20" uuid="b577d702-619f-4449-a7d8-552929a8fddf"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Solicitado Por]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="438" y="112" width="100" height="20" uuid="01503564-7e07-470c-8098-18b6b7161335"/>
+				<textFieldExpression><![CDATA[$F{contrato}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="321" y="112" width="100" height="20" uuid="ba16ee08-e72d-40c6-8c4a-a8c1ec698435"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contrato]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="108" y="0" width="430" height="35" uuid="931a8426-cddf-4c6b-921a-152ccc12c84a"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="0" width="70" height="20" uuid="6f02dc41-90c8-4711-a8f5-75e262c871b6"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="136" width="100" height="20" uuid="517a5e8f-f542-4278-ac62-7a7dde328bd5"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Solucionado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="136" width="100" height="20" uuid="ead7103a-9af7-4674-92de-56fe44c386d6"/>
+				<textFieldExpression><![CDATA[$F{solucionado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="176" width="70" height="20" uuid="cdb16373-7b91-478e-b836-c0f9decbb30a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora Inicial :]]></text>
+			</staticText>
+			<textField pattern="HH.mm">
+				<reportElement x="120" y="176" width="201" height="20" uuid="d42b9a4a-6b7d-45ee-8bbf-07c5b86e1d07"/>
+				<textFieldExpression><![CDATA[$F{hora_ini}.toString()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="331" y="176" width="65" height="20" uuid="0f2563f7-6a28-42e1-820c-de0ebfe5af62"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora Fin]]></text>
+			</staticText>
+			<textField pattern="HH.mm">
+				<reportElement x="411" y="176" width="127" height="20" uuid="7e7c2271-555a-43cc-8180-dcac62e00bed"/>
+				<textFieldExpression><![CDATA[$F{hora_fin}.toString()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="206" width="100" height="20" uuid="bff223fd-4319-4cf3-91c2-0570572f8bce"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Observaciones]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="206" width="407" height="40" uuid="5971a36c-4165-43ec-bfd5-b8d7c9ed1997"/>
+				<textFieldExpression><![CDATA[$F{observaciones}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="13" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="71" y="0" width="100" height="20" uuid="802932ea-e42f-43ed-9a97-cabad6cd9ce1"/>
+				<textFieldExpression><![CDATA[$F{nombreAsesor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="46" y="20" width="149" height="20" uuid="fd078a31-b3f3-41df-8d20-2cc058d50f21"/>
+				<textElement markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVICIO PRESTADO POR]]></text>
+			</staticText>
+			<line>
+				<reportElement x="46" y="19" width="144" height="1" uuid="1780bc8f-eee5-4e06-9634-969e45c1138a"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="14" splitType="Stretch"/>
+	</summary>
+</jasperReport>

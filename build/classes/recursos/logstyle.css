@@ -1,0 +1,4 @@
+#fondo{
+	-fx-background-image: url("imagen1.jpg");
+	-fx-background-position: center center;
+}
