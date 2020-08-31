@@ -46,19 +46,21 @@ public class MenuPrincipal {
        private ImageView imgv,fondo;
        private Button generarRep,verRep,cerrarSesion;
        private StackPane contenedor;
-       private Stage stagelocal;
+       //private Stage stage;
 
     public MenuPrincipal(Stage stage,Vendedor user) {
         inicializarPanes(stage,user);
-        
-        
+        //stage.setScene(new Scene(contenedor));
+        //stage.show();
     }
     
     private void inicializarPanes(Stage stage,Vendedor user){
+        //stage = new Stage();
+        stage.setMaximized(true);
         contenedor = new StackPane();
         Screen pantalla = Screen.getPrimary();
         Rectangle2D bounds = pantalla.getVisualBounds();
-        stage.setMaximized(true);
+        //stage.setMaximized(true);
         //stagelocal.setMaximized(true);
         fondo = new ImageView(new Image("recursos/imagen1.png"));
         fondo.setFitHeight(bounds.getHeight());
@@ -139,6 +141,7 @@ public class MenuPrincipal {
             Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
             stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
             stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
+            stage.setMaximized(true);
             
         });
     }

@@ -78,7 +78,7 @@ public class Rubro {
         ObservableList<Rubro> listaRubros = FXCollections.observableArrayList();    
         try {
             ConexionSQL canal = new ConexionSQL();
-            Connection cn = canal.conectarSQL("SYSWEBSERVICE\\\\SQLEXPRESS","data01","sa","Rootpass1");
+            Connection cn = canal.conectarSQL("SYSWEBSERVICE\\\\SQLEXPRESS","Sysapplog","sa","Rootpass1");
             Statement s = cn.createStatement();
             ResultSet r = s.executeQuery("select master,codigo,nombre,valor,pideval from alptabla where master=(select codigo from alptabla where nomtag='I_rubser')");
             while(r.next()){

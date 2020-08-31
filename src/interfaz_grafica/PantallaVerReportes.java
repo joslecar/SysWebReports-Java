@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -138,12 +139,12 @@ public class PantallaVerReportes {
         regresar.setFont(new Font("Monaco", 20));
         regresar.setOnAction((e1) -> {
             e1.consume();
-            MenuPrincipal mp = new MenuPrincipal(stage, user);
-            stage.setScene(new Scene(mp.getPrincipal(), 500, 500));
+            MenuPrincipal mp = new MenuPrincipal(this.stage, user);
+            this.stage.setScene(new Scene(mp.getPrincipal(), 500, 500));
 
         });
         lvwreportes.setPadding(new Insets(10, 10, 10, 10));
-        lvwreportes.setPrefHeight(stage.getHeight());
+        lvwreportes.setPrefHeight(this.stage.getHeight());
         lvwreportes.setBackground(Background.EMPTY);
         lvwreportes.setOnScroll(e -> {
 
@@ -170,7 +171,7 @@ public class PantallaVerReportes {
     private void buscarPorFecha() {
         try {
             ConexionSQL canal = new ConexionSQL();
-            Connection cn = canal.conectarSQL("SYSWEBSERVICE\\SQLEXPRESS", "data01", "sa", "Rootpass1");
+            Connection cn = canal.conectarSQL("SYSWEBSERVICE\\SQLEXPRESS", "Sysapplog", "sa", "Rootpass1");
             Statement s = cn.createStatement();
             ResultSet r = s.executeQuery(query + " where w.cod_asesor = '"+user.getSgrupo()+"' and w.fecha_rs between '" + fecha1.getValue().toString() + "' and '" + fecha2.getValue().toString() + "'");
             while (r.next()) {
@@ -191,14 +192,14 @@ public class PantallaVerReportes {
                         new Vendedor(r.getString("master"), r.getString("cod_asesor"), r.getString("nombreAsesor"),
                                 r.getFloat("valor"), r.getString("nomtag"), r.getString("gestion"), r.getBoolean("pideval"),
                                 r.getString("campo1"), r.getString("sgrupo"), r.getString("campo2"), r.getFloat("lencod"),
-                                r.getInt("valor2"), user.getTipoCod()), r.getDate("fecha_rs"), r.getDate("fechaIngreso"), r.getString("solucion"), r.getBoolean("facturar"), r.getString("ordenTrabajo"),
+                                r.getInt("valor2"), user.getTipoCod()), r.getDate("fecha_rs").toLocalDate(), r.getDate("fechaIngreso").toLocalDate(), r.getString("solucion"), r.getBoolean("facturar"), r.getString("ordenTrabajo"),
                         r.getBoolean("solucionado"), r.getBoolean("contrato"), r.getString("dpto"), r.getString("SolicitadoPor"),
                         r.getString("hora_ini"), r.getString("hora_fin"), r.getString("observaciones"));
                 reporte.setDetalle(listadetalles);
                 if (!listareportes1.contains(reporte)) {
                     listareportes1.add(reporte);
                 }
-            }
+            }           
             lvwreportes = crearListView(listareportes1);
             vbox.getChildren().add(lvwreportes);
             canal.desconectar();
@@ -211,7 +212,7 @@ public class PantallaVerReportes {
     private void buscarPorNombre() {
         try {
             ConexionSQL canal = new ConexionSQL();
-            Connection cn = canal.conectarSQL("SYSWEBSERVICE\\SQLEXPRESS", "data01", "sa", "Rootpass1");
+            Connection cn = canal.conectarSQL("SYSWEBSERVICE\\SQLEXPRESS", "Sysapplog", "sa", "Rootpass1");
             try (Statement s = cn.createStatement(); ResultSet r = s.executeQuery(query + " where w.cod_asesor = '"+user.getSgrupo()+"' and empcli COLLATE SQL_Latin1_General_Cp1_CI_AI like '%" + busquedaNombre.getText() + "%'")) {
                 while (r.next()) {
                     List<ReporteDetalle> listadetalles = new ArrayList<>();
@@ -232,7 +233,7 @@ public class PantallaVerReportes {
                             new Vendedor(r.getString("master"), r.getString("cod_asesor"), r.getString("nombreAsesor"),
                                     r.getFloat("valor"), r.getString("nomtag"), r.getString("gestion"), r.getBoolean("pideval"),
                                     r.getString("campo1"), r.getString("sgrupo"), r.getString("campo2"), r.getFloat("lencod"),
-                                    r.getInt("valor2"), user.getTipoCod()), r.getDate("fecha_rs"), r.getDate("fechaIngreso"), r.getString("solucion"), r.getBoolean("facturar"), r.getString("ordenTrabajo"),
+                                    r.getInt("valor2"), user.getTipoCod()), r.getDate("fecha_rs").toLocalDate(), r.getDate("fechaIngreso").toLocalDate(), r.getString("solucion"), r.getBoolean("facturar"), r.getString("ordenTrabajo"),
                             r.getBoolean("solucionado"), r.getBoolean("contrato"), r.getString("dpto"), r.getString("SolicitadoPor"),
                             r.getString("hora_ini"), r.getString("hora_fin"), r.getString("observaciones"));
                     reporte.setDetalle(listadetalles);

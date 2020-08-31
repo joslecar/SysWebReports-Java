@@ -78,10 +78,12 @@ public class Login {
         /*Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
         stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
         stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);*/
-        
-        imagen=new Image("/recursos/Syscompsa_Nuevo.png",250,250,true,true);
+        double imgwidth = stage.getWidth()/3;
+        double imgheight = stage.getHeight()/3;
+        imagen=new Image("/recursos/Syscompsa_Nuevo.png",stage.getWidth()/3,stage.getHeight()/3,true,true);
         imgview=new ImageView(imagen);
-        
+        imgview.maxHeight(imgheight);
+        imgview.maxWidth(imgwidth);
         cambios = new JFXButton("Cambios de cuenta2");
         acercade = new JFXButton("Acerca de");
         
@@ -123,7 +125,7 @@ public class Login {
                 if(!user.isIsRespon()){
                     ConexionSQL canal = new ConexionSQL();     
                     try {
-                        cn1 = canal.conectarSQL("SYSWEBSERVICE\\\\SQLEXPRESS", "data01", "sa", "Rootpass1");
+                        cn1 = canal.conectarSQL("SYSWEBSERVICE\\\\SQLEXPRESS", "Sysapplog", "sa", "Rootpass1");
                         Statement s = cn1.createStatement();
                         ResultSet re = s.executeQuery("select * from alptabla where master=(select codigo from alptabla where nomtag='I_Vende')  and len(ltrim(rtrim(sgrupo)))>0 and sgrupo = '"+user.getCodigo()+"';");
                         while(re.next()){
@@ -141,9 +143,11 @@ public class Login {
                         Logger.getLogger(Aplicacion.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     menup=new MenuPrincipal(stage,userfinal);  
+                    //stage.close();
                     stage.setScene(new Scene(menup.getPrincipal(),500,500));
                 }else{
                     menuad=new MenuAdministrador(stage,userfinal);
+                    //stage.close();
                     stage.setScene(new Scene(menuad.getPrincipal(),500,500));
                 }
             }
@@ -170,6 +174,7 @@ public class Login {
         fondo = new ImageView(new Image("recursos/imagen2.png"));
         fondo.setFitHeight(stage.getHeight());
         fondo.setFitWidth(stage.getWidth());
+        
         /*int numero = 1;
         String casa = "Hola";
         String total = String.valueOf(numero)+casa;*/

@@ -3,18 +3,32 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/PantallaGenerarReporteN.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/SelectEmail.java</file>
-            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/Aplicacion.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/PantallaAgregarCliente.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/entidades/ReporteDetalle.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/entidades/BusquedaReporte.java</file>
-            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/recursos/button.css</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/entidades/Rubro.java</file>
-            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/Login.java</file>
-            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/PantallaVerReportes.java</file>
-            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/PantallaReporteN.java</file>
-            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/TiempoRubro.java</file>
-            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/reporteador/Reporteador.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/conexionDB/ConexionSQL.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/MenuAdministrador.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/entidades/CtaPorPagar.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/entidades/Reporte.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/entidades/repoServicesConfig.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/MenuPrincipal.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/ReposicionReporteUI.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/entidades/ProductosReposicion.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/recursos/button.css</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/entidades/Cliente.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/TiempoRubro.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/PantallaGenerarReporteN.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/entidades/Proveedor.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/PantallaReporteN.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/reporteador/Reporteador.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/Aplicacion.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/entidades/ReposicionReporte.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/Login.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/entidades/Vendedor.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/interfaz_grafica/PantallaVerReportes.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/SyscompsaAppB/src/entidades/ReposicionReporteDetalle.java</file>
         </group>
     </open-files>
 </project-private>

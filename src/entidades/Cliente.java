@@ -105,7 +105,7 @@ public class Cliente {
         ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();    
         try {
             ConexionSQL canal = new ConexionSQL();
-            Connection cn = canal.conectarSQL("SYSWEBSERVICE\\\\SQLEXPRESS","data01","sa","Rootpass1");
+            Connection cn = canal.conectarSQL("SYSWEBSERVICE\\\\SQLEXPRESS","Sysapplog","sa","Rootpass1");
             Statement s = cn.createStatement();
             ResultSet r = s.executeQuery("select * from dp05a110");
             while(r.next()){

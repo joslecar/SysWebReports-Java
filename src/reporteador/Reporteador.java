@@ -42,7 +42,7 @@ public class Reporteador {
             parametro.put("numero_rs", numero_rs);
             parametro.put("imagen", Reporteador.class.getResourceAsStream("/recursos/Syscompsa.jpg"));
             parametro.put("tipoUser", tipoUser);
-            JasperPrint j = JasperFillManager.fillReport(is, parametro,con.conectarSQL("SYSWEBSERVICE\\SQLEXPRESS", "data01", "sa", "Rootpass1") );
+            JasperPrint j = JasperFillManager.fillReport(is, parametro,con.conectarSQL("SYSWEBSERVICE\\SQLEXPRESS", "Sysapplog", "sa", "Rootpass1") );
             JasperViewer jv = new JasperViewer(j,false);
             jv.setTitle("Reporte de servicio");
             jv.setVisible(true);
@@ -78,7 +78,7 @@ public class Reporteador {
           parametro.put("numero_rs", numero_rs);
           parametro.put("imagen", Reporteador.class.getResourceAsStream("/recursos/Syscompsa.jpg"));
           parametro.put("tipoUser", tipoUser);
-          JasperPrint jasperPrint = JasperFillManager.fillReport(in, parametro, con.conectarSQL("SYSWEBSERVICE\\SQLEXPRESS", "data01", "sa", "Rootpass1") );
+          JasperPrint jasperPrint = JasperFillManager.fillReport(in, parametro, con.conectarSQL("SYSWEBSERVICE\\SQLEXPRESS", "Sysapplog", "sa", "Rootpass1") );
           //se crea el archivo PDF
           File directorio = new File("./reportesGuardados");
           if(!directorio.exists()){

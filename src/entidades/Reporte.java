@@ -6,6 +6,7 @@
 package entidades;
 
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,10 +20,10 @@ import java.util.Objects;
 public class Reporte {
     private String tipo;
     private String numero_rs;
-    private Cliente empresa_rs;
+    private Cliente empresa_rs ;
     private Vendedor cod_asesor;
-    private Date fecha_rs;
-    private Date fechaIngreso;
+    private LocalDate fecha_rs;
+    private LocalDate fechaIngreso;
     private String solucion;
     private boolean facturar;
     private String ordenTrabajo;
@@ -35,8 +36,10 @@ public class Reporte {
     private List<ReporteDetalle> detalle;
    // private String descripcion;
     private String observaciones;
+    private boolean esPresencial;
+    private ReposicionReporte reposicion;
     
-    public Reporte(String tipo, String numero_rs, Cliente empresa_rs, Vendedor cod_asesor,Date fecha_rs,Date fechaIngreso,
+    public Reporte(String tipo, String numero_rs, Cliente empresa_rs, Vendedor cod_asesor,LocalDate fecha_rs,LocalDate fechaIngreso,
             String solucion, boolean facturar, String ordenTrabajo, boolean solucionado, boolean contrato, String dpto,String solicitadoPor,
             String hora_ini, String hora_fin,String observaciones){
         this.tipo = tipo;
@@ -96,11 +99,11 @@ public class Reporte {
         this.empresa_rs = empresa_rs;
     }
 
-    public Date getFecha_rs() {
+    public LocalDate getFecha_rs() {
         return fecha_rs;
     }
 
-    public void setFecha_rs(Date fecha_rs) {
+    public void setFecha_rs(LocalDate fecha_rs) {
         this.fecha_rs = fecha_rs;
     }
 
@@ -132,11 +135,11 @@ public class Reporte {
         this.detalle.add(detalle);
     }
 
-    public Date getFechaIngreso() {
+    public LocalDate getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(LocalDate fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
@@ -219,6 +222,24 @@ public class Reporte {
     public void setSolucion(String solucion) {
         this.solucion = solucion;
     }
+
+    public boolean isEsPresencial() {
+        return esPresencial;
+    }
+
+    public void setEsPresencial(boolean esPresencial) {
+        this.esPresencial = esPresencial;
+    }
+
+    public ReposicionReporte getReposicion() {
+        return reposicion;
+    }
+
+    public void setReposicion(ReposicionReporte reposicion) {
+        this.reposicion = reposicion;
+    }
+    
+    
 
     @Override
     public String toString() {

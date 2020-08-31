@@ -7,6 +7,7 @@ package interfaz_grafica;
 
 import entidades.Reporte;
 import entidades.ReporteDetalle;
+import java.time.format.DateTimeFormatter;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -96,6 +97,7 @@ public class PantallaReporteN {
         }
         fecha = new Label(r.getFecha_rs().toString().trim());
         ordenTrabajo = new Label(r.getOrdenTrabajo().trim());
+        //fechaReporte = new Label(fecha1);
         fechaReporte = new Label(r.getFechaIngreso().toString().trim());
         solucion = new Label(r.getSolucion().trim());
         solucion.setMaxWidth(450);
